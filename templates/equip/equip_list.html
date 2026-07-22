@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ message }}</h2>
+
+<table border="1">
+    <tr>
+        <th>Name</th><th>Locate</th><th>IPaddress</th><th>etc</th><th>Edit</th><th>Delete</th>
+    </tr>
+    {% if equips|length == 0 %}
+    <tr>
+        <td colspan="6">登録されていません。</td>
+    </tr>
+    {% endif %}
+    {% for equip in equips %}
+    <tr>
+        <td>{{ equip.name }}</td>
+        <td>{{ equip.locate }}</td>
+        <td>
+            {% if equip.ipaddress == 0 %}
+            <span>未設定</span>
+            {% else %}
+            {{ equip.ipaddress }}
+            {% endif %}
+        </td>
+        <td>
+            {% if equip.etc != None %}
+            {{ equip.etc }}
+            {% endif %}
+        </td>
+        <td><a href="{% url 'equip_update' equip.id %}">Edit</a></td>
+        <td><a href="{% url 'equip_delete' equip.id %}" style="color: red;">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if deleted_equips|length != 0 %}
+<hr>    
+<p>復元する</p>
+    {% for d_equip in deleted_equips %}
+    <form method="post" action="{% url 'equip_restore' d_equip.id %}">
+        {% csrf_token %}
+        <p>{{ d_equip.name }}
+            <span>( {{ d_equip.ipaddress }} )</span> 
+            <button type="submit">Restore</button>
+        </p>
+    </form>
+    {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=django_db
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=django_pass
+  python:
+    depends_on:
+      - db
+    build: .
+    container_name: final-assignment
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+
+    command: bash
+volumes:
+  postgres_data:

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>機器管理システム</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"
+    </head>
+    <body>
+        <nav><strong>機器管理APP</strong> | 
+            <a href="/equipment/equips/">ホーム</a> |
+            <a href="/equipment/add/">新規登録</a>
+        </nav>
+        <hr>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

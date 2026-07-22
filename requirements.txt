@@ -1,0 +1,5 @@
+black
+mypy
+Django==6.0.5
+psycopg2-binary==2.9.12
+django-stubs==6.0.5

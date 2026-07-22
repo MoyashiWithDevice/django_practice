@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>データを削除しますか？</h1>
+<p>{{equip.name}}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit"
+        style="background-color: red; color: white;">
+        削除する</button>
+    <a href="{% url 'equip_list' %}">キャンセル</a>
+</form>
+{% endblock %}
