@@ -7,8 +7,17 @@
     </head>
     <body>
         <nav><strong>機器管理APP</strong> | 
-            <a href="/equipment/equips/">ホーム</a> |
-            <a href="/equipment/add/">新規登録</a>
+            <a href="{% url 'equip_list' %}">ホーム</a> |
+
+            {% if user.is_authenticated %}
+                <span>こんにちは、{{ user.username }} さん</span>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">ログアウト</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">ログイン</a>
+            {% endif %}
         </nav>
         <hr>
         {% block content %}
