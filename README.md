@@ -52,3 +52,11 @@ def equip_restore(request, equip_id):
     
     return render(request, "equip/equip_list.html")
 ```
+
+# 動作イメージ
+
+![スクリーンショット1](Screenshots/home.jpg)
+
+![登録画面](Screenshots/register.jpg)
+
+![スクリーンショット2](Screenshots/registered_home.jpg)
