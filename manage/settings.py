@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import environ
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, [])
 )
 
