@@ -54,6 +54,9 @@ def equip_restore(request, equip_id):
 ```
 
 # 動作イメージ
-![スクリーンショット1](Screenshots/スクリーンショット 2026-07-22 101434.jpg)
-![登録画面](Screenshots/スクリーンショット 2026-07-22 103152.jpg)
-![スクリーンショット2](Screenshots/スクリーンショット 2026-07-22 103045.jpg)
+
+![スクリーンショット1](Screenshots/home.jpg)
+
+![登録画面](Screenshots/register.jpg)
+
+![スクリーンショット2](Screenshots/registered_home.jpg)
